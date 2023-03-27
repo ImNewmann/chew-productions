@@ -4,18 +4,10 @@
             <LoadingAnimation v-if="!loadContent" />
         </transition>
         <transition name="nav" appear>
-            <Navbar
-                v-if="loadContent"
-                :posts="posts"
-                :categories="categories"
-            />
+            <Navbar v-if="loadContent" :posts="posts" :categories="categories" />
         </transition>
         <transition name="page" appear>
-            <router-view
-                v-if="loadContent"
-                :posts="posts"
-                :categories="categories"
-            ></router-view>
+            <router-view v-if="loadContent" :posts="posts" :categories="categories"></router-view>
         </transition>
         <Footer v-if="loadContent" />
     </div>
@@ -46,12 +38,12 @@ export default {
 
     metaInfo: {
         // if no subcomponents specify a metaInfo.title, this title will be used
-        title: 'Director',
+        title: 'Chew Productions',
         // all titles will be injected into this template
-        titleTemplate: '%s | Tom Newman',
+        // titleTemplate: '%s | Chew Productions',
         meta: [
             { charset: 'utf-8' },
-            { name: 'description', content: 'Director / London' },
+            { name: 'description', content: 'Chew Productions' },
             {
                 name: 'viewport',
                 content: 'width=device-width, initial-scale=1',
@@ -61,15 +53,11 @@ export default {
 
     async created() {
         const categories = await getData(`${endPoint}/categories?orderby=id`);
-        this.categories = categories.filter(
-            (category) => category.slug !== 'uncategorised'
-        );
+        this.categories = categories.filter((category) => category.slug !== 'uncategorised');
 
         this.posts = await getData(`${endPoint}/posts?per_page=100`);
 
-        const featuredCategory = this.categories.filter(
-            (cat) => cat.id === 8
-        )[0];
+        const featuredCategory = this.categories.filter((cat) => cat.id === 8)[0];
         const imagesToLoad = this.getProjectImages(featuredCategory);
 
         Promise.all(imagesToLoad.map(preloadImages)).then(() => {
@@ -84,9 +72,7 @@ export default {
         getProjectImages(featuredCat) {
             let visibleImages = [];
 
-            const featuredPosts = this.posts.filter((post) =>
-                post.categories.includes(featuredCat.id)
-            );
+            const featuredPosts = this.posts.filter((post) => post.categories.includes(featuredCat.id));
 
             // 4 Visible projects on screen
             for (let i = 0; i <= 3; i++) {
