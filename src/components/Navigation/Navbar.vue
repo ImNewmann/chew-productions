@@ -6,13 +6,7 @@
             </router-link>
             <HamburgerIcon @iconClicked="handleMenu" :menu-open="showMenu" />
             <CloseIcon @iconClicked="handleMenu" :menu-open="showMenu" />
-            <NavMenu
-                v-if="posts.length"
-                @linkClicked="handleMenu"
-                :open="showMenu"
-                :posts="posts"
-                :categories="categories"
-            />
+            <NavMenu v-if="posts.length" @linkClicked="handleMenu" :open="showMenu" :posts="posts" :categories="categories" />
         </div>
     </nav>
 </template>
@@ -68,9 +62,10 @@ export default {
 
     &__logo {
         pointer-events: all;
-        max-width: 250px;
+        max-width: 150px;
 
         svg {
+            width: 100%;
             transition: fill 0.6s ease;
             fill: $white;
             .page & {

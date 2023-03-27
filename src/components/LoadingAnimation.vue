@@ -1,15 +1,15 @@
 <template>
     <div class="loading">
-        <TinyLogo class="loading__logo" />
+        <Logo class="loading__logo" />
     </div>
 </template>
 
 <script>
-import TinyLogo from '@/assets/svg/tiny-logo.svg';
+import Logo from '@/assets/svg/main-logo.svg';
 
 export default {
     components: {
-        TinyLogo,
+        Logo,
     },
 };
 </script>
@@ -22,12 +22,13 @@ export default {
     width: 80px;
 
     @include breakpoint(tablet) {
-        width: 100px;
+        width: 200px;
     }
 
     &__logo {
         animation: letter-animation 3s infinite;
         transition: fill 0.4s ease;
+        fill: black;
 
         .loaded & {
             fill: $white;
