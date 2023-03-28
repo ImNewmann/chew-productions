@@ -2,23 +2,13 @@
     <div class="carousel">
         <!-- swiper1 -->
         <swiper class="swiper gallery-top" :options="swiperOptionTop" ref="swiperTop">
-            <swiper-slide
-                class="slide-1"
-                v-for="(slide, index) in images"
-                :key="index"
-                :style="`background-image: url('${slide.image.url}');`"
-            ></swiper-slide>
+            <swiper-slide class="slide-1" v-for="(slide, index) in images" :key="index" :style="`background-image: url('${slide.image.url}');`"></swiper-slide>
             <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
             <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
         </swiper>
         <!-- swiper2 Thumbs -->
         <swiper class="swiper gallery-thumbs" :options="swiperOptionThumbs" ref="swiperThumbs">
-            <swiper-slide
-                class="slide-1"
-                v-for="(slide, index) in images"
-                :key="index"
-                :style="`background-image: url('${slide.image.url}');`"
-            ></swiper-slide>
+            <swiper-slide class="slide-1" v-for="(slide, index) in images" :key="index" :style="`background-image: url('${slide.image.url}');`"></swiper-slide>
         </swiper>
     </div>
 </template>
@@ -73,7 +63,6 @@ export default {
 <style lang="scss">
 .carousel {
     height: 300px;
-    background-color: $white;
 
     @include breakpoint(tablet) {
         height: 420px;

@@ -50,10 +50,12 @@ export default {
     props: {
         posts: { type: Array, required: true },
         orientation: { type: String, default: 'Landscape' },
+        slidesPerViewMobile: { type: Number, required: false },
+        slidesPerViewDesktop: { type: Number, required: false },
     },
     data: () => ({
         swiperOptions: {
-            slidesPerView: 1.2,
+            slidesPerView: 1.1,
             spaceBetween: 10,
             shortSwipes: false,
             longSwipes: true,
@@ -76,7 +78,8 @@ export default {
         DESKTOP,
     }),
     created() {
-        // this.swiperOptions.breakpoints['640'].slidesPerView = this.orientation === 'Portrait' ? 5 : 4;
+        if (this.slidesPerViewMobile) this.swiperOptions.slidesPerView = this.slidesPerViewMobile;
+        if (this.slidesPerViewDesktop) this.swiperOptions.breakpoints['640'].slidesPerView = this.slidesPerViewDesktop;
     },
     mounted() {
         this.posts.forEach(() =>

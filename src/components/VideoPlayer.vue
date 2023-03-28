@@ -11,8 +11,8 @@
                 <Video v-for="(video, index) in post.acf.videos" :key="index" :html="video.video" />
             </div>
             <div class="post__details">
-                <div class="post-details__text" v-html="post.acf.details"></div>
                 <ImageCarousel v-if="post.acf.carousel_images" :images="post.acf.carousel_images" />
+                <div class="post-details__text" v-html="post.acf.details"></div>
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@ export default {
         padding: 40px 20px;
         margin: auto;
         background-color: rgba(26, 26, 26, 1);
-        max-width: 1000px;
+        max-width: 1200px;
         width: 98%;
         height: auto;
 
@@ -120,7 +120,7 @@ export default {
             font-weight: 300;
             vertical-align: top;
             color: $white;
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
     }
 }

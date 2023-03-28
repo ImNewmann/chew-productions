@@ -1,7 +1,12 @@
 <template>
     <section :class="['posts', this.scrollLock ? 'lock-scroll' : '']">
         <div v-for="(category, index) in categories" :key="index">
-            <VideoCarousel :posts="getPostsFromCategories(category.id)" :orientation="category.acf.orientation" />
+            <VideoCarousel
+                :posts="getPostsFromCategories(category.id)"
+                :orientation="category.acf.orientation"
+                :slidesPerViewDesktop="index === 1 ? 3.2 : null"
+                :slidesPerViewMobile="index === 1 ? 1.2 : null"
+            />
         </div>
         <router-view :posts="posts"></router-view>
     </section>

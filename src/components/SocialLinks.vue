@@ -1,10 +1,10 @@
 <template>
     <div class="social-links">
-        <a href="https://www.instagram.com/tompnewman/" target="_blank">
+        <a href="https://www.instagram.com/chewproductions/" target="_blank">
             <InstagramIcon class="social-links__icon" />
         </a>
         <span>/</span>
-        <a href="https://twitter.com/TomD1abloNewman" target="_blank">
+        <a href="https://twitter.com/Chewproduction" target="_blank">
             <TwitterIcon class="social-links__icon" />
         </a>
     </div>
