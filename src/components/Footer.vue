@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
         <div class="footer__links">
-            <a href="tom@chew.productions">tom@chew.productions</a>
+            <a href="mailto:tom@chew.productions">tom@chew.productions</a>
             <span>/</span>
         </div>
         <div class="footer__links">
