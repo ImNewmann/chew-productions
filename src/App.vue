@@ -41,14 +41,6 @@ export default {
         title: 'Chew Productions',
         // all titles will be injected into this template
         // titleTemplate: '%s | Chew Productions',
-        meta: [
-            { charset: 'utf-8' },
-            { name: 'description', content: 'Chew Productions' },
-            {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
-            },
-        ],
     },
 
     async created() {

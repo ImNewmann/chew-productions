@@ -17,13 +17,5 @@ module.exports = {
             .end()
             .use('vue-svg-loader')
             .loader('vue-svg-loader');
-
-        config.plugin('html').tap((args) => {
-            args[0].meta = [
-                { name: 'description', content: 'Director / London' },
-                { name: 'robots', content: 'nosnippet' },
-            ];
-            return args;
-        });
     },
 };
