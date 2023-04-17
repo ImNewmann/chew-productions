@@ -1,11 +1,6 @@
 //Breakpoints
 
 @mixin breakpoint($point) {
-    @if $point == largeDesktop {
-        @media (min-width: 1367px) {
-            @content;
-        }
-    }
     @if $point == desktop {
         @media (min-width: 1024px) {
             @content;

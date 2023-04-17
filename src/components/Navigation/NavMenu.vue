@@ -45,7 +45,7 @@ export default {
 <style lang="scss">
 .nav-menu {
     pointer-events: all;
-    padding: 50px;
+    padding: 50px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,10 +70,6 @@ export default {
             font-family: $font-family-title;
             font-size: 30px;
             margin-bottom: 10px;
-
-            @include breakpoint(largeDesktop) {
-                font-size: 36px;
-            }
         }
 
         li {
