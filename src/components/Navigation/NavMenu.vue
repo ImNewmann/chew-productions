@@ -49,6 +49,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     opacity: 1;
     position: fixed;
     top: 0;
@@ -69,6 +70,10 @@ export default {
             font-family: $font-family-title;
             font-size: 30px;
             margin-bottom: 10px;
+
+            @include breakpoint(largeDesktop) {
+                font-size: 36px;
+            }
         }
 
         li {
