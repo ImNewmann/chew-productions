@@ -49,7 +49,6 @@ export default {
             this.title = formatTitle(currentRoute);
             this.post = this.posts.filter((post) => post.slug === currentRoute)[0];
             this.videoLength = this.post.acf.videos.length;
-            console.log(currentRoute);
         },
     },
 };
