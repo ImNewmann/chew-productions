@@ -10,6 +10,7 @@ import VideoPlayer from '@/components/VideoPlayer';
 
 export default {
     name: 'Post',
+
     props: {
         posts: { type: Array, required: true },
     },
@@ -24,8 +25,10 @@ export default {
     }),
 
     metaInfo() {
+        const currentRoute = this.$router.currentRoute.params.postSlug;
         return {
-            title: this.title,
+            title: 'Chew Productions',
+            titleTemplate: `%s - ${formatTitle(currentRoute)}`,
         };
     },
     watch: {
