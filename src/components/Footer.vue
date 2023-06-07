@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
         <div class="footer__links">
-            <a href="mailto:tom@chew.productions">tom@chew.productions</a>
+            <a href="mailto:hello@chew.productions">hello@chew.productions</a>
             <span>/</span>
         </div>
         <div class="footer__links">
@@ -28,16 +28,12 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     background-color: $black;
     padding: 20px;
     text-align: center;
     color: $white;
-
-    @include breakpoint(tablet) {
-        flex-direction: row;
-    }
 
     .page & {
         background-color: $white;
@@ -47,41 +43,15 @@ export default {
         font-family: $font-family-content;
         color: $white;
 
-        &:first-of-type {
-            order: 2;
-
-            @include breakpoint(tablet) {
-                order: 1;
-            }
-
-            span:last-of-type {
-                opacity: 0;
-
-                @include breakpoint(tablet) {
-                    opacity: 1;
-                }
-            }
-        }
-
-        &:last-of-type {
-            order: 1;
-            margin-bottom: 5px;
-
-            @include breakpoint(tablet) {
-                margin-bottom: 0;
-                order: 2;
-            }
-        }
-
         .page & {
             color: $black;
         }
 
         a {
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
 
             &:hover {
-                color: $pink;
+                opacity: 0.7;
             }
         }
 
@@ -89,5 +59,14 @@ export default {
             padding: 0 15px;
         }
     }
+}
+
+.footer-enter {
+    opacity: 0;
+}
+
+.footer-enter-to {
+    opacity: 1;
+    transition: opacity 0.6s 2s ease;
 }
 </style>

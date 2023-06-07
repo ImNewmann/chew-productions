@@ -1,11 +1,12 @@
 body {
-    transition: background-color 0.4s ease;
+    background-color: $black;
 
-    &.loaded {
-        background-color: $black;
-    }
+    // &.loaded {
+    //     background-color: $black;
+    // }
 
     &.page {
+        transition: background-color 0.4s ease;
         background-color: $white;
     }
 }

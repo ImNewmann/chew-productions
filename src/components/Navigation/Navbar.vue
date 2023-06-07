@@ -58,11 +58,18 @@ export default {
         width: 100%;
         margin: 0 auto;
         justify-content: space-between;
+        align-content: center;
     }
 
     &__logo {
         pointer-events: all;
-        max-width: 150px;
+        max-width: 120px;
+        display: flex;
+        align-content: center;
+
+        @include breakpoint(desktop) {
+            max-width: 150px;
+        }
 
         svg {
             width: 100%;

@@ -6,6 +6,7 @@ import VueMeta from 'vue-meta';
 import FrontPage from '@/templates/FrontPage.vue';
 import Post from '@/templates/Post.vue';
 import Contact from '@/templates/Contact.vue';
+import Reel from '@/templates/Reel.vue';
 
 Vue.use(Router);
 Vue.use(VueMeta);
@@ -13,9 +14,14 @@ Vue.use(VueMeta);
 const router = new Router({
     routes: [
         {
-            path: '/info',
+            path: '/who-we-are',
             name: 'Contact',
             component: Contact,
+        },
+        {
+            path: '/reel',
+            name: 'Reel',
+            component: Reel,
         },
         {
             path: '/',
@@ -50,7 +56,7 @@ const router = new Router({
 
 router.afterEach((to) => {
     // (to, from)
-    if (to.path === '/info') {
+    if (to.path === '/who-we-are') {
         document.body.classList.add('page');
     } else {
         document.body.classList.remove('page');

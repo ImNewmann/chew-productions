@@ -153,9 +153,8 @@ export default {
             justify-content: flex-end;
             align-items: flex-end;
             font-family: $font-family-content;
-            font-size: 14px;
             color: $white;
-            padding: 0 10px 10px 0;
+            padding: 0 20px 10px 0;
             opacity: 0;
             transition: opacity 0.5s ease;
             z-index: 2;
@@ -220,7 +219,6 @@ export default {
                 position: relative;
                 transition: 250ms all;
                 overflow: hidden;
-                border-radius: 3px;
 
                 @include breakpoint(desktop) {
                     &:hover {
@@ -235,7 +233,7 @@ export default {
         .swiper-button-next:before {
             border-color: $white;
             border-style: solid;
-            border-width: 0.2em 0.2em 0 0;
+            border-width: 0.1em 0.1em 0 0;
             content: '';
             display: inline-block;
             transform: rotate(-135deg);

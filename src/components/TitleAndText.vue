@@ -29,7 +29,12 @@ export default {
 
     .text {
         font-family: $font-family-content;
-        color: $black;
+        color: black;
+    }
+
+    img {
+        object-fit: contain;
+        height: auto;
     }
 }
 </style>

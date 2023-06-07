@@ -1,15 +1,17 @@
 <template>
     <div id="app">
-        <transition name="loading" appear>
-            <LoadingAnimation v-if="!loadContent" />
+        <transition name="holding">
+            <HoldingScreen v-if="showHolding" @enter-site="handleEnterSite" />
         </transition>
         <transition name="nav" appear>
-            <Navbar v-if="loadContent" :posts="posts" :categories="categories" />
+            <Navbar v-if="!showHolding" :posts="posts" :categories="categories" />
         </transition>
         <transition name="page" appear>
-            <router-view v-if="loadContent" :posts="posts" :categories="categories"></router-view>
+            <router-view v-if="!showHolding" :posts="posts" :categories="categories"></router-view>
         </transition>
-        <Footer v-if="loadContent" />
+        <transition name="footer" appear>
+            <Footer v-if="!showHolding" />
+        </transition>
     </div>
 </template>
 
@@ -17,7 +19,7 @@
 import { endPoint } from '@/constants/endpoint.js';
 import { getData } from '@/utilities/getData.js';
 import { preloadImages } from '@/utilities/preloadImages.js';
-import LoadingAnimation from '@/components/LoadingAnimation';
+import HoldingScreen from '@/components/HoldingScreen2';
 import Navbar from '@/components/Navigation/Navbar';
 import Footer from '@/components/Footer';
 import '@/assets/scss/main.scss';
@@ -25,13 +27,14 @@ import '@/assets/scss/main.scss';
 export default {
     name: 'App',
     components: {
-        LoadingAnimation,
+        HoldingScreen,
         Navbar,
         Footer,
     },
 
     data: () => ({
-        loadContent: false,
+        postsLoaded: false,
+        showHolding: false,
         posts: [],
         categories: [],
     }),
@@ -44,6 +47,8 @@ export default {
     },
 
     async created() {
+        this.showHolding = this.$route.name === 'FrontPage';
+
         const categories = await getData(`${endPoint}/categories?orderby=id`);
         this.categories = categories.filter((category) => category.slug !== 'uncategorised');
 
@@ -53,11 +58,16 @@ export default {
         const imagesToLoad = this.getProjectImages(featuredCategory);
 
         Promise.all(imagesToLoad.map(preloadImages)).then(() => {
-            document.body.classList.add('loaded');
             setTimeout(() => {
-                this.loadContent = true;
+                this.postsLoaded = true;
             }, 500);
         });
+    },
+
+    watch: {
+        $route() {
+            this.showHolding = false;
+        },
     },
 
     methods: {
@@ -71,6 +81,10 @@ export default {
                 visibleImages.push(featuredPosts[i].acf.featured_image.url);
             }
             return visibleImages;
+        },
+
+        handleEnterSite() {
+            this.showHolding = false;
         },
     },
 };

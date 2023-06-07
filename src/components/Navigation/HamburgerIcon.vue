@@ -26,6 +26,8 @@ export default {
 .hamburger-icon {
     $block: &;
     cursor: pointer;
+    position: relative;
+    top: -3px;
     pointer-events: all;
     display: flex;
     flex-direction: column;

@@ -1,2 +1,8 @@
 $font-family-title: 'Lulo';
+// $font-family-content: 'GT-Sectra';
 $font-family-content: 'Futura-Book';
+
+@mixin font-family-content {
+    font-family: $font-family-content;
+    letter-spacing: 1px;
+}

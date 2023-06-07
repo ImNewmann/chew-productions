@@ -17,8 +17,15 @@
             </div>
             <div class="nav-menu__dropdown">
                 <div class="nav-menu__dropdown-label" @click="linkClicked">
-                    <router-link to="/info">
-                        Info
+                    <router-link to="/who-we-are">
+                        Who we are
+                    </router-link>
+                </div>
+            </div>
+            <div class="nav-menu__dropdown">
+                <div class="nav-menu__dropdown-label" @click="linkClicked">
+                    <router-link to="/reel">
+                        Reel
                     </router-link>
                 </div>
             </div>
@@ -79,10 +86,10 @@ export default {
         }
 
         a {
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
 
             &:hover {
-                color: $pink;
+                opacity: 0.7;
             }
         }
     }

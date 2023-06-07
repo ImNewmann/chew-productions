@@ -47,7 +47,7 @@ export default {
 
         &:hover {
             transform: scale(1.05);
-            fill: $pink;
+            opacity: 0.7;
         }
     }
 }

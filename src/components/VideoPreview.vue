@@ -1,14 +1,5 @@
 <template>
-    <vimeo-player
-        :class="videoClasses"
-        ref="player"
-        :options="options"
-        :video-url="videoID"
-        :controls="controls"
-        :autoplay="autoplay"
-        @ready="onReady"
-        loop
-    ></vimeo-player>
+    <vimeo-player :class="videoClasses" ref="player" :video-url="videoID" :controls="controls" :autoplay="autoplay" @ready="onReady" loop></vimeo-player>
 </template>
 
 <script>
@@ -20,13 +11,6 @@ export default {
         autoplay: { type: Boolean, default: false },
         play: { type: Boolean, default: false },
         orientation: { type: String, default: 'Landscape' },
-    },
-    data() {
-        return {
-            options: {
-                muted: true,
-            },
-        };
     },
 
     computed: {

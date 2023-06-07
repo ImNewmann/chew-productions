@@ -5,7 +5,7 @@
                 <div class="video-player-close-btn__line"></div>
                 <div class="video-player-close-btn__line"></div>
             </router-link>
-            <h1 class="post__title" v-html="post.title.rendered"></h1>
+            <h2 class="post__title" v-html="post.title.rendered"></h2>
 
             <div class="post__videos">
                 <Video v-for="(video, index) in post.acf.videos" :key="index" :html="video.video" />
@@ -117,10 +117,15 @@ export default {
         }
         &__text {
             font-family: $font-family-content;
+            letter-spacing: 0.2px;
             font-weight: 300;
             vertical-align: top;
             color: $white;
             margin-top: 20px;
+
+            p strong {
+                font-family: $font-family-content;
+            }
         }
     }
 }

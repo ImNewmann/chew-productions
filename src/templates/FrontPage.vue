@@ -4,7 +4,7 @@
             <VideoCarousel
                 :posts="getPostsFromCategories(category.id)"
                 :orientation="category.acf.orientation"
-                :slidesPerViewDesktop="index === 1 ? 3.2 : null"
+                :slidesPerViewDesktop="index === 1 ? 3.1 : null"
                 :slidesPerViewMobile="index === 1 ? 1.2 : null"
             />
         </div>
@@ -52,7 +52,7 @@ export default {
     }
 
     .video-carousel {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 }
 
