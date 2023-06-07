@@ -52,11 +52,10 @@ export default {
 <style lang="scss">
 .nav-menu {
     pointer-events: all;
-    padding: 50px 20px;
+    padding: 80px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     opacity: 1;
     position: fixed;
     top: 0;
@@ -66,6 +65,10 @@ export default {
     overflow-y: scroll;
     background-color: rgba(0, 0, 0, 0.9);
     transition: opacity 0.3s ease;
+
+    @include breakpoint(tablet) {
+        justify-content: center;
+    }
 
     &__dropdown {
         color: $white;

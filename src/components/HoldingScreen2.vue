@@ -144,7 +144,7 @@ export default {
                 position: absolute;
                 bottom: 0;
                 left: 50%;
-                transform: translateX(-50%);
+                transform: translateX(-50%) scale(0.8);
                 width: 100%;
                 height: 2px;
                 transition: transform 0.3s ease;
