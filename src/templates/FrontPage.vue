@@ -1,11 +1,13 @@
 <template>
     <section :class="['posts', this.scrollLock ? 'lock-scroll' : '']">
+        <VideoCarousel v-if="this.featuredCategory" :posts="getPostsFromCategories(this.featuredCategory.id)" :orientation="this.featuredCategory.acf.orientation" />
         <div v-for="(category, index) in categories" :key="index">
             <VideoCarousel
+                v-if="category.slug !== 'featured-work'"
                 :posts="getPostsFromCategories(category.id)"
                 :orientation="category.acf.orientation"
-                :slidesPerViewDesktop="index === 1 ? 3.1 : null"
-                :slidesPerViewMobile="index === 1 ? 1.2 : null"
+                :slidesPerViewDesktop="3.1"
+                :slidesPerViewMobile="1.2"
             />
         </div>
         <router-view :posts="posts"></router-view>
@@ -25,7 +27,12 @@ export default {
 
     data: () => ({
         scrollLock: false,
+        featuredCategory: null,
     }),
+
+    created() {
+        this.featuredCategory = this.categories.filter((cat) => cat.slug === 'featured-work')[0];
+    },
     methods: {
         getPostsFromCategories(categoryID) {
             return this.posts.filter((post) => post.categories[0] === categoryID);
