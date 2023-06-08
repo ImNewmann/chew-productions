@@ -21,8 +21,6 @@ export default {
         page: [],
     }),
     async created() {
-        const slug = this.$router.currentRoute.path.slice(1);
-        console.log(slug);
         this.page = await getData(`${endPoint}/pages?slug=info`);
     },
     metaInfo() {
