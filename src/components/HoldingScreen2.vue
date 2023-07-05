@@ -136,36 +136,70 @@ export default {
             padding: 10px 20px;
             color: $white;
             background: transparent;
-            transition: opacity 0.6s ease;
+            transition: opacity 0.6s ease, letter-spacing 0.4s ease;
 
-            &:after {
-                content: '';
-                background: $white;
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%) scale(0.8);
-                width: 100%;
-                height: 2px;
-                transition: transform 0.3s ease;
+            &:hover,
+            &:active {
+                letter-spacing: 5px;
             }
 
-            @include breakpoint(desktop) {
-                opacity: 0.8;
+            // &:after,
+            // &:before {
+            //     backface-visibility: hidden;
+            //     border: 1px solid rgba(#fff, 0);
+            //     bottom: 0px;
+            //     content: ' ';
+            //     display: block;
+            //     margin: 0 auto;
+            //     position: relative;
+            //     transition: all 280ms ease-in-out;
+            //     width: 0;
+            // }
 
-                &:after {
-                    transform-origin: center;
-                    transform: translateX(-50%) scaleX(0.2);
-                }
+            // &:after {
+            //     bottom: -5px;
+            // }
 
-                &:hover {
-                    opacity: 1 !important;
+            // &:before {
+            //     top: -5px;
+            // }
 
-                    &:after {
-                        transform: translateX(-50%) scaleX(0.8);
-                    }
-                }
-            }
+            // &:hover:after,
+            // &:hover:before {
+            //     backface-visibility: hidden;
+            //     border-color: #fff;
+            //     transition: width 350ms ease-in-out;
+            //     width: 95%;
+            // }
+
+            // &:after {
+            //     content: '';
+            //     background: $white;
+            //     position: absolute;
+            //     bottom: 0;
+            //     left: 50%;
+            //     transform: translateX(-50%) scale(0.8);
+            //     width: 100%;
+            //     height: 2px;
+            //     transition: transform 0.3s ease;
+            // }
+
+            // @include breakpoint(desktop) {
+            //     opacity: 0.8;
+
+            //     &:after {
+            //         transform-origin: center;
+            //         transform: translateX(-50%) scaleX(0.2);
+            //     }
+
+            //     &:hover {
+            //         opacity: 1 !important;
+
+            //         &:after {
+            //             transform: translateX(-50%) scaleX(0.8);
+            //         }
+            //     }
+            // }
         }
     }
 }
