@@ -122,6 +122,7 @@ export default {
             vertical-align: top;
             color: $white;
             margin-top: 20px;
+            word-break: break-word;
 
             p strong {
                 font-family: $font-family-content;
