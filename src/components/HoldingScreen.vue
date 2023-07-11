@@ -6,39 +6,34 @@
             loading="eager"
             preload="auto"
             title="Name"
-            src="https://player.vimeo.com/video/833988948?h=f7ee951061&background=1&loop=1&autopause=0&muted=1&quality=auto&responsive=1&dnt=1&app_id=122963"
+            src="https://player.vimeo.com/video/834081084?h=2c663bd37c&background=1&loop=1&autopause=0&muted=1&quality=auto&responsive=1&dnt=1&app_id=122963"
             width="100%"
             height="100%"
             frameborder="0"
             allow="autoplay; fullscreen"
             allowfullscreen
         ></iframe>
-        <div class="holding-screen__text">
-            <p>Film production based in London.</p>
-            <button class="holding-screen__cta" @click="handleEnterSiteClicked">Enter site</button>
-        </div>
 
-        <!-- <vimeo-player
-            class="holding-screen__video"
-            ref="player"
-            :options="options"
-            video-url="https://vimeo.com/833677581/180b6a8f94"
-            :controls="false"
-            autoplay
-            loop
-            @play="this.videoReady"
-        ></vimeo-player> -->
+        <div class="holding-screen__content">
+            <transition name="logo-holding" appear>
+                <Logo />
+            </transition>
+            <div class="holding-screen__cta">
+                <button @click="handleEnterSiteClicked">Enter site</button>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import Logo from '@/assets/svg/main-logo.svg';
 export default {
+    components: {
+        Logo,
+    },
     data() {
         return {
             loaded: false,
-            options: {
-                muted: true,
-            },
         };
     },
     methods: {
@@ -76,8 +71,30 @@ export default {
         opacity: 0.8;
     }
 
-    [data-ready='true'] ~ &__text {
+    [data-ready='true'] ~ &__content &__cta {
         opacity: 1;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 300px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        // @include breakpoint(desktop) {
+        //     max-width: 15vw;
+        // }
+
+        svg {
+            fill: $white;
+            path: {
+                fill: transparent;
+            }
+        }
     }
 
     &__text {
@@ -103,28 +120,86 @@ export default {
     }
 
     &__cta {
-        display: block;
-        cursor: pointer;
-        font-family: $font-family-content;
-        font-size: 20px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border: 1px $white solid;
-        padding: 10px 20px;
-        color: $white;
-        background: transparent;
+        position: relative;
+        margin-top: 40px;
+        opacity: 0;
+        transition: opacity 0.6s 1s ease;
 
-        @include breakpoint(desktop) {
-            transition: opacity 0.6s ease;
-            opacity: 0.8;
+        button {
+            display: block;
+            cursor: pointer;
+            font-family: $font-family-content;
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            padding: 10px 20px;
+            color: $white;
+            background: transparent;
+            transition: opacity 0.6s ease, letter-spacing 0.4s ease;
 
-            &:hover {
-                opacity: 1;
+            &:hover,
+            &:active {
+                letter-spacing: 5px;
             }
+
+            // &:after,
+            // &:before {
+            //     backface-visibility: hidden;
+            //     border: 1px solid rgba(#fff, 0);
+            //     bottom: 0px;
+            //     content: ' ';
+            //     display: block;
+            //     margin: 0 auto;
+            //     position: relative;
+            //     transition: all 280ms ease-in-out;
+            //     width: 0;
+            // }
+
+            // &:after {
+            //     bottom: -5px;
+            // }
+
+            // &:before {
+            //     top: -5px;
+            // }
+
+            // &:hover:after,
+            // &:hover:before {
+            //     backface-visibility: hidden;
+            //     border-color: #fff;
+            //     transition: width 350ms ease-in-out;
+            //     width: 95%;
+            // }
+
+            // &:after {
+            //     content: '';
+            //     background: $white;
+            //     position: absolute;
+            //     bottom: 0;
+            //     left: 50%;
+            //     transform: translateX(-50%) scale(0.8);
+            //     width: 100%;
+            //     height: 2px;
+            //     transition: transform 0.3s ease;
+            // }
+
+            // @include breakpoint(desktop) {
+            //     opacity: 0.8;
+
+            //     &:after {
+            //         transform-origin: center;
+            //         transform: translateX(-50%) scaleX(0.2);
+            //     }
+
+            //     &:hover {
+            //         opacity: 1 !important;
+
+            //         &:after {
+            //             transform: translateX(-50%) scaleX(0.8);
+            //         }
+            //     }
+            // }
         }
     }
 }
@@ -132,5 +207,14 @@ export default {
 .holding-leave-active {
     opacity: 0;
     transition: all 0.3s ease;
+}
+
+.logo-holding-enter {
+    opacity: 0;
+}
+
+.logo-holding-enter-to {
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 </style>

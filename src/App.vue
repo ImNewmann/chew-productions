@@ -19,7 +19,7 @@
 import { endPoint } from '@/constants/endpoint.js';
 import { getData } from '@/utilities/getData.js';
 import { preloadImages } from '@/utilities/preloadImages.js';
-import HoldingScreen from '@/components/HoldingScreen2';
+import HoldingScreen from '@/components/HoldingScreen';
 import Navbar from '@/components/Navigation/Navbar';
 import Footer from '@/components/Footer';
 import '@/assets/scss/main.scss';
@@ -54,7 +54,7 @@ export default {
 
         this.posts = await getData(`${endPoint}/posts?per_page=100`);
 
-        const featuredCategory = this.categories.filter((cat) => cat.id === 8)[0];
+        const featuredCategory = this.categories.filter((cat) => cat.id === 10)[0];
         const imagesToLoad = this.getProjectImages(featuredCategory);
 
         Promise.all(imagesToLoad.map(preloadImages)).then(() => {
